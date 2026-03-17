@@ -1,3 +1,5 @@
+using GameLibrary.Wpf.Services;
+
 namespace GameLibrary.Wpf.ViewModels
 {
     public class DashboardViewModel : BaseViewModel
@@ -14,9 +16,9 @@ namespace GameLibrary.Wpf.ViewModels
                 var hour = DateTime.Now.Hour;
                 string greeting = hour switch
                 {
-                    < 12 => "\u05D1\u05D5\u05E7\u05E8 \u05D8\u05D5\u05D1", // בוקר טוב
-                    < 17 => "\u05E6\u05D4\u05E8\u05D9\u05D9\u05DD \u05D8\u05D5\u05D1\u05D9\u05DD", // צהריים טובים
-                    _ => "\u05E2\u05E8\u05D1 \u05D8\u05D5\u05D1"  // ערב טוב
+                    < 12 => TranslationSource.Instance["GoodMorning"],
+                    < 17 => TranslationSource.Instance["GoodAfternoon"],
+                    _ => TranslationSource.Instance["GoodEvening"]
                 };
                 WelcomeMessage = $"{greeting}, {user.Username}!";
 

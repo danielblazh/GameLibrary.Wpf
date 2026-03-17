@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using GameLibrary.Wpf.Services;
 
 namespace GameLibrary.Wpf.ViewModels
 {
@@ -96,11 +97,11 @@ namespace GameLibrary.Wpf.ViewModels
         private void ValidateUsername()
         {
             if (string.IsNullOrWhiteSpace(Username))
-                UsernameError = "\u26A0 \u05E9\u05D3\u05D4 \u05D6\u05D4 \u05D7\u05D5\u05D1\u05D4"; // שדה זה חובה
+                UsernameError = TranslationSource.Instance["FieldRequired"];
             else if (Username.Length < 3)
-                UsernameError = "\u26A0 \u05E9\u05DD \u05DE\u05E9\u05EA\u05DE\u05E9 \u05D7\u05D9\u05D9\u05D1 \u05DC\u05D4\u05DB\u05D9\u05DC \u05DC\u05E4\u05D7\u05D5\u05EA 3 \u05EA\u05D5\u05D5\u05D9\u05DD"; // שם משתמש חייב להכיל לפחות 3 תווים
+                UsernameError = TranslationSource.Instance["UsernameMinLength"];
             else if (Username.Contains(' '))
-                UsernameError = "\u26A0 \u05E9\u05DD \u05DE\u05E9\u05EA\u05DE\u05E9 \u05DC\u05DC\u05D0 \u05E8\u05D5\u05D5\u05D7\u05D9\u05DD"; // שם משתמש ללא רווחים
+                UsernameError = TranslationSource.Instance["UsernameNoSpaces"];
             else
                 UsernameError = string.Empty;
         }
@@ -108,9 +109,9 @@ namespace GameLibrary.Wpf.ViewModels
         private void ValidateEmail()
         {
             if (string.IsNullOrWhiteSpace(Email))
-                EmailError = "\u26A0 \u05E9\u05D3\u05D4 \u05D6\u05D4 \u05D7\u05D5\u05D1\u05D4";
+                EmailError = TranslationSource.Instance["FieldRequired"];
             else if (!EmailRegex().IsMatch(Email))
-                EmailError = "\u26A0 \u05DB\u05EA\u05D5\u05D1\u05EA \u05D0\u05D9\u05DE\u05D9\u05D9\u05DC \u05DC\u05D0 \u05EA\u05E7\u05D9\u05E0\u05D4"; // כתובת אימייל לא תקינה
+                EmailError = TranslationSource.Instance["InvalidEmail"];
             else
                 EmailError = string.Empty;
         }
@@ -118,11 +119,11 @@ namespace GameLibrary.Wpf.ViewModels
         private void ValidatePassword()
         {
             if (string.IsNullOrWhiteSpace(Password))
-                PasswordError = "\u26A0 \u05E9\u05D3\u05D4 \u05D6\u05D4 \u05D7\u05D5\u05D1\u05D4";
+                PasswordError = TranslationSource.Instance["FieldRequired"];
             else if (Password.Length < 6)
-                PasswordError = "\u26A0 \u05D4\u05E1\u05D9\u05E1\u05DE\u05D4 \u05D7\u05DC\u05E9\u05D4 \u05DE\u05D3\u05D9"; // הסיסמה חלשה מדי
+                PasswordError = TranslationSource.Instance["WeakPassword"];
             else if (!Password.Any(char.IsDigit))
-                PasswordError = "\u26A0 \u05D4\u05E1\u05D9\u05E1\u05DE\u05D4 \u05D7\u05DC\u05E9\u05D4 \u05DE\u05D3\u05D9"; // הסיסמה חלשה מדי
+                PasswordError = TranslationSource.Instance["WeakPassword"];
             else
                 PasswordError = string.Empty;
         }
@@ -130,9 +131,9 @@ namespace GameLibrary.Wpf.ViewModels
         private void ValidateConfirmPassword()
         {
             if (string.IsNullOrWhiteSpace(ConfirmPassword))
-                ConfirmPasswordError = "\u26A0 \u05E9\u05D3\u05D4 \u05D6\u05D4 \u05D7\u05D5\u05D1\u05D4";
+                ConfirmPasswordError = TranslationSource.Instance["FieldRequired"];
             else if (ConfirmPassword != Password)
-                ConfirmPasswordError = "\u26A0 \u05D4\u05E1\u05D9\u05E1\u05DE\u05D0\u05D5\u05EA \u05D0\u05D9\u05E0\u05DF \u05EA\u05D5\u05D0\u05DE\u05D5\u05EA"; // הסיסמאות אינן תואמות
+                ConfirmPasswordError = TranslationSource.Instance["PasswordMismatch"];
             else
                 ConfirmPasswordError = string.Empty;
         }
@@ -152,12 +153,12 @@ namespace GameLibrary.Wpf.ViewModels
 
             if (_main.Auth.Register(Username, Email, Password))
             {
-                SuccessMessage = "\u2705 \u05E0\u05E8\u05E9\u05DE\u05EA \u05D1\u05D4\u05E6\u05DC\u05D7\u05D4! \u05DE\u05E2\u05D1\u05D9\u05E8 \u05DC\u05DB\u05E0\u05D9\u05E1\u05D4..."; // ✅ נרשמת בהצלחה!
+                SuccessMessage = TranslationSource.Instance["RegisterSuccess"];
                 _main.NavigateToLogin();
             }
             else
             {
-                ErrorMessage = "\u26A0 \u05E9\u05DD \u05DE\u05E9\u05EA\u05DE\u05E9 \u05DB\u05D1\u05E8 \u05E7\u05D9\u05D9\u05DD"; // שם משתמש כבר קיים
+                ErrorMessage = TranslationSource.Instance["UsernameExists"];
             }
         }
 

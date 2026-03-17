@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <!-- App -->
+  <data name="AppTitle" xml:space="preserve"><value>🎮 Game Library</value></data>
+  <data name="Version" xml:space="preserve"><value>Game Library v1.0 | 2025</value></data>
+  <data name="Language" xml:space="preserve"><value>🌐 עב</value></data>
+
+  <!-- Common -->
+  <data name="Login" xml:space="preserve"><value>Login</value></data>
+  <data name="Register" xml:space="preserve"><value>Register</value></data>
+  <data name="Back" xml:space="preserve"><value>← Back</value></data>
+  <data name="Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Add" xml:space="preserve"><value>➕ Add</value></data>
+  <data name="All" xml:space="preserve"><value>All</value></data>
+  <data name="Logout" xml:space="preserve"><value>🚪 Logout</value></data>
+  <data name="Actions" xml:space="preserve"><value>Actions</value></data>
+
+  <!-- MainPage -->
+  <data name="MainPageSubtitle" xml:space="preserve"><value>Manage your game library</value></data>
+
+  <!-- Login -->
+  <data name="LoginTitle" xml:space="preserve"><value>🎮 Login</value></data>
+  <data name="Username" xml:space="preserve"><value>Username</value></data>
+  <data name="Password" xml:space="preserve"><value>Password</value></data>
+  <data name="NoAccountRegister" xml:space="preserve"><value>No account? Register</value></data>
+  <data name="BackToLogin" xml:space="preserve"><value>← Back to login</value></data>
+  <data name="LoginError" xml:space="preserve"><value>⚠️ Invalid username or password</value></data>
+
+  <!-- Register -->
+  <data name="RegisterTitle" xml:space="preserve"><value>🎮 Register</value></data>
+  <data name="Email" xml:space="preserve"><value>Email</value></data>
+  <data name="ConfirmPassword" xml:space="preserve"><value>Confirm Password</value></data>
+  <data name="RegisterSuccess" xml:space="preserve"><value>✅ Registered successfully! Redirecting...</value></data>
+  <data name="UsernameExists" xml:space="preserve"><value>⚠ Username already exists</value></data>
+
+  <!-- Validation -->
+  <data name="FieldRequired" xml:space="preserve"><value>⚠ This field is required</value></data>
+  <data name="UsernameMinLength" xml:space="preserve"><value>⚠ Username must be at least 3 characters</value></data>
+  <data name="UsernameNoSpaces" xml:space="preserve"><value>⚠ Username cannot contain spaces</value></data>
+  <data name="InvalidEmail" xml:space="preserve"><value>⚠ Invalid email address</value></data>
+  <data name="WeakPassword" xml:space="preserve"><value>⚠ Password is too weak</value></data>
+  <data name="PasswordMismatch" xml:space="preserve"><value>⚠ Passwords do not match</value></data>
+  <data name="ValueMustBePositive" xml:space="preserve"><value>⚠ Value must be 0 or greater</value></data>
+  <data name="DuplicateGame" xml:space="preserve"><value>⚠ A game with this name already exists</value></data>
+
+  <!-- Dashboard -->
+  <data name="GoodMorning" xml:space="preserve"><value>Good morning</value></data>
+  <data name="GoodAfternoon" xml:space="preserve"><value>Good afternoon</value></data>
+  <data name="GoodEvening" xml:space="preserve"><value>Good evening</value></data>
+  <data name="TotalGames" xml:space="preserve"><value>🎮 Total Games</value></data>
+  <data name="PlayingNow" xml:space="preserve"><value>▶️ Playing Now</value></data>
+  <data name="CompletedGames" xml:space="preserve"><value>✅ Completed</value></data>
+  <data name="HoursPlayed" xml:space="preserve"><value>⏱️ Hours Played</value></data>
+  <data name="QuickNav" xml:space="preserve"><value>Quick Navigation</value></data>
+
+  <!-- Sidebar -->
+  <data name="Menu" xml:space="preserve"><value>Menu</value></data>
+  <data name="SidebarHome" xml:space="preserve"><value>🏠 Home</value></data>
+  <data name="SidebarLibrary" xml:space="preserve"><value>🎮 Library</value></data>
+  <data name="SidebarStats" xml:space="preserve"><value>📊 Statistics</value></data>
+  <data name="SidebarLeaderboard" xml:space="preserve"><value>🏆 Leaderboard</value></data>
+  <data name="SidebarAdmin" xml:space="preserve"><value>🛠️ Admin</value></data>
+
+  <!-- Game Library -->
+  <data name="GameLibraryTitle" xml:space="preserve"><value>🎮 Game Library</value></data>
+  <data name="AddGame" xml:space="preserve"><value>➕ Add Game</value></data>
+  <data name="Status" xml:space="preserve"><value>Status</value></data>
+  <data name="GameName" xml:space="preserve"><value>Game Name</value></data>
+  <data name="Genre" xml:space="preserve"><value>Genre</value></data>
+  <data name="Platform" xml:space="preserve"><value>Platform</value></data>
+  <data name="Rating" xml:space="preserve"><value>Rating</value></data>
+  <data name="Hours" xml:space="preserve"><value>Hours</value></data>
+  <data name="Level" xml:space="preserve"><value>Level</value></data>
+  <data name="GamesFound" xml:space="preserve"><value>Found {0} games</value></data>
+
+  <!-- Game Profile -->
+  <data name="AddGameTitle" xml:space="preserve"><value>Add New Game</value></data>
+  <data name="EditGameTitle" xml:space="preserve"><value>Edit Game</value></data>
+  <data name="RatingLabel" xml:space="preserve"><value>Rating (0-10)</value></data>
+  <data name="LevelLabel" xml:space="preserve"><value>Level (1-5)</value></data>
+  <data name="HoursPlayedLabel" xml:space="preserve"><value>Hours Played</value></data>
+  <data name="ReleaseDate" xml:space="preserve"><value>Release Date</value></data>
+  <data name="Notes" xml:space="preserve"><value>Notes</value></data>
+
+  <!-- Statistics -->
+  <data name="StatisticsTitle" xml:space="preserve"><value>📊 Statistics</value></data>
+  <data name="TotalGamesLabel" xml:space="preserve"><value>Total Games</value></data>
+  <data name="TotalHoursLabel" xml:space="preserve"><value>Total Hours</value></data>
+  <data name="AverageRating" xml:space="preserve"><value>Average Rating</value></data>
+  <data name="Achievements" xml:space="preserve"><value>🏆 Achievements</value></data>
+  <data name="ByStatus" xml:space="preserve"><value>By Status</value></data>
+  <data name="ByGenre" xml:space="preserve"><value>By Genre</value></data>
+
+  <!-- Admin -->
+  <data name="AdminTitle" xml:space="preserve"><value>🛠️ User Management</value></data>
+  <data name="AddUser" xml:space="preserve"><value>Add User</value></data>
+  <data name="EditUser" xml:space="preserve"><value>Edit User</value></data>
+  <data name="Role" xml:space="preserve"><value>Role</value></data>
+  <data name="JoinDate" xml:space="preserve"><value>Join Date</value></data>
+
+  <!-- Achievements -->
+  <data name="AchievementsFor" xml:space="preserve"><value>🏆 Achievements — {0}</value></data>
+  <data name="AchievementName" xml:space="preserve"><value>Achievement Name</value></data>
+  <data name="Description" xml:space="preserve"><value>Description</value></data>
+  <data name="UnlockDate" xml:space="preserve"><value>Unlock Date</value></data>
+  <data name="StatusLabel" xml:space="preserve"><value>Status</value></data>
+
+  <!-- Leaderboard -->
+  <data name="LeaderboardTitle" xml:space="preserve"><value>🏆 Leaderboard</value></data>
+  <data name="Rank" xml:space="preserve"><value>Rank</value></data>
+
+  <!-- Levels -->
+  <data name="LevelBeginner" xml:space="preserve"><value>Beginner</value></data>
+  <data name="LevelIntermediate" xml:space="preserve"><value>Intermediate</value></data>
+  <data name="LevelAdvanced" xml:space="preserve"><value>Advanced</value></data>
+  <data name="LevelExpert" xml:space="preserve"><value>Expert</value></data>
+  <data name="LevelMaster" xml:space="preserve"><value>Master</value></data>
+  <data name="LevelUnknown" xml:space="preserve"><value>Unknown</value></data>
+
+  <!-- Confirm Dialogs -->
+  <data name="ConfirmDelete" xml:space="preserve"><value>Confirm Delete</value></data>
+  <data name="ConfirmDeleteGame" xml:space="preserve"><value>Delete "{0}"?</value></data>
+  <data name="ConfirmDeleteUser" xml:space="preserve"><value>Delete user "{0}"?</value></data>
+  <data name="ConfirmDeleteAchievement" xml:space="preserve"><value>Delete achievement "{0}"?</value></data>
+</root>

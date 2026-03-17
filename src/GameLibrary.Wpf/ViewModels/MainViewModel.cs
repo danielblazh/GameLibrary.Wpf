@@ -23,6 +23,7 @@ namespace GameLibrary.Wpf.ViewModels
             NavigateToStatsCommand = new RelayCommand(NavigateToStatistics);
             NavigateToAdminCommand = new RelayCommand(NavigateToAdmin);
             NavigateToLeaderboardCommand = new RelayCommand(NavigateToLeaderboard);
+            ToggleLanguageCommand = new RelayCommand(() => TranslationSource.Instance.ToggleLanguage());
 
             ApplyTheme();
             NavigateToMainPage();
@@ -73,6 +74,9 @@ namespace GameLibrary.Wpf.ViewModels
         public RelayCommand NavigateToStatsCommand { get; }
         public RelayCommand NavigateToAdminCommand { get; }
         public RelayCommand NavigateToLeaderboardCommand { get; }
+        public RelayCommand ToggleLanguageCommand { get; }
+
+        public TranslationSource Loc => TranslationSource.Instance;
 
         private void ToggleTheme()
         {

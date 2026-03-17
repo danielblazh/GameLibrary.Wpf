@@ -1,4 +1,5 @@
 using GameLibrary.Wpf.Models;
+using GameLibrary.Wpf.Services;
 
 namespace GameLibrary.Wpf.ViewModels
 {
@@ -13,7 +14,7 @@ namespace GameLibrary.Wpf.ViewModels
             _existingGame = game;
 
             IsEditing = game != null;
-            PageTitle = IsEditing ? "\u05E2\u05E8\u05D9\u05DB\u05EA \u05DE\u05E9\u05D7\u05E7" : "\u05D4\u05D5\u05E1\u05E4\u05EA \u05DE\u05E9\u05D7\u05E7 \u05D7\u05D3\u05E9"; // עריכת משחק / הוספת משחק חדש
+            PageTitle = IsEditing ? TranslationSource.Instance["EditGameTitle"] : TranslationSource.Instance["AddGameTitle"];
 
             StatusOptions = new List<string> { "Playing", "Queued", "Completed", "Dropped" };
             GenreOptions = new List<string> { "Action", "Adventure", "RPG", "Strategy", "Sports", "Puzzle", "Simulation", "Horror", "FPS", "Racing", "Other" };
@@ -133,7 +134,7 @@ namespace GameLibrary.Wpf.ViewModels
         private void ValidateTitle()
         {
             if (string.IsNullOrWhiteSpace(Title))
-                TitleError = "\u26A0 \u05E9\u05D3\u05D4 \u05D6\u05D4 \u05D7\u05D5\u05D1\u05D4"; // שדה זה חובה
+                TitleError = TranslationSource.Instance["FieldRequired"];
             else
                 TitleError = string.Empty;
         }
@@ -141,7 +142,7 @@ namespace GameLibrary.Wpf.ViewModels
         private void ValidateHours()
         {
             if (!double.TryParse(HoursPlayed, out double h) || h < 0)
-                HoursError = "\u26A0 \u05D4\u05E2\u05E8\u05DA \u05D7\u05D9\u05D9\u05D1 \u05DC\u05D4\u05D9\u05D5\u05EA \u05D2\u05D3\u05D5\u05DC \u05DE-0"; // הערך חייב להיות גדול מ-0
+                HoursError = TranslationSource.Instance["ValueMustBePositive"];
             else
                 HoursError = string.Empty;
         }
@@ -162,7 +163,7 @@ namespace GameLibrary.Wpf.ViewModels
             // Check duplicates
             if (_main.Db.GameExistsForUser(Title, userId, _existingGame?.Id))
             {
-                ErrorMessage = "\u26A0 \u05DE\u05E9\u05D7\u05E7 \u05E2\u05DD \u05E9\u05DD \u05D6\u05D4 \u05DB\u05D1\u05E8 \u05E7\u05D9\u05D9\u05DD"; // משחק עם שם זה כבר קיים
+                ErrorMessage = TranslationSource.Instance["DuplicateGame"];
                 return;
             }
 

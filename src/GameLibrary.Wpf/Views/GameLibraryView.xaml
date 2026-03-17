@@ -1,7 +1,8 @@
 <UserControl x:Class="GameLibrary.Wpf.Views.GameLibraryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:converters="clr-namespace:GameLibrary.Wpf.Converters">
+             xmlns:converters="clr-namespace:GameLibrary.Wpf.Converters"
+             xmlns:services="clr-namespace:GameLibrary.Wpf.Services">
 
     <UserControl.Resources>
         <converters:RatingToStarsConverter x:Key="RatingToStars"/>
@@ -21,10 +22,10 @@
 
         <!-- Header -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,16">
-            <Button Content="&#x2190; &#x05D7;&#x05D6;&#x05E8;&#x05D4;"
+            <Button Content="{Binding [Back], Source={x:Static services:TranslationSource.Instance}}"
                     Command="{Binding BackCommand}"
                     Style="{StaticResource SecondaryButton}" Margin="0,0,16,0"/>
-            <TextBlock Text="&#x1F3AE; &#x05E1;&#x05E4;&#x05E8;&#x05D9;&#x05D9;&#x05EA; &#x05D4;&#x05DE;&#x05E9;&#x05D7;&#x05E7;&#x05D9;&#x05DD;"
+            <TextBlock Text="{Binding [GameLibraryTitle], Source={x:Static services:TranslationSource.Instance}}"
                        FontSize="24" FontWeight="Bold"
                        Foreground="{DynamicResource PrimaryText}" VerticalAlignment="Center"/>
         </StackPanel>
@@ -56,7 +57,7 @@
                       MinWidth="120" Margin="0,0,8,0"/>
 
             <Button Grid.Column="3"
-                    Content="&#x2795; &#x05D4;&#x05D5;&#x05E1;&#x05E3; &#x05DE;&#x05E9;&#x05D7;&#x05E7;"
+                    Content="{Binding [AddGame], Source={x:Static services:TranslationSource.Instance}}"
                     Command="{Binding AddGameCommand}"
                     Style="{StaticResource PrimaryButton}"/>
         </Grid>
@@ -77,25 +78,25 @@
                   AlternatingRowBackground="{DynamicResource GridRowAlt}">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="&#x05E1;&#x05D8;&#x05D8;&#x05D5;&#x05E1;"
+                <DataGridTextColumn Header="{Binding [Status], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Status, Converter={StaticResource StatusToIcon}}"
                                     Width="60"/>
-                <DataGridTextColumn Header="&#x05E9;&#x05DD; &#x05DE;&#x05E9;&#x05D7;&#x05E7;"
+                <DataGridTextColumn Header="{Binding [GameName], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Title}" Width="*"/>
-                <DataGridTextColumn Header="&#x05E7;&#x05D8;&#x05D2;&#x05D5;&#x05E8;&#x05D9;&#x05D4;"
+                <DataGridTextColumn Header="{Binding [Genre], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Genre}" Width="120"/>
-                <DataGridTextColumn Header="&#x05E4;&#x05DC;&#x05D8;&#x05E4;&#x05D5;&#x05E8;&#x05DE;&#x05D4;"
+                <DataGridTextColumn Header="{Binding [Platform], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Platform}" Width="120"/>
-                <DataGridTextColumn Header="&#x05D3;&#x05D9;&#x05E8;&#x05D5;&#x05D2;"
+                <DataGridTextColumn Header="{Binding [Rating], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Rating, Converter={StaticResource RatingToStars}}"
                                     Width="120"/>
-                <DataGridTextColumn Header="&#x05E9;&#x05E2;&#x05D5;&#x05EA;"
+                <DataGridTextColumn Header="{Binding [Hours], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding HoursPlayed, Converter={StaticResource HoursToText}}"
                                     Width="100"/>
-                <DataGridTextColumn Header="&#x05E8;&#x05DE;&#x05D4;"
+                <DataGridTextColumn Header="{Binding [Level], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Level, Converter={StaticResource LevelToText}}"
                                     Width="80"/>
-                <DataGridTemplateColumn Header="&#x05E4;&#x05E2;&#x05D5;&#x05DC;&#x05D5;&#x05EA;" Width="180">
+                <DataGridTemplateColumn Header="{Binding [Actions], Source={x:Static services:TranslationSource.Instance}}" Width="180">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -123,7 +124,7 @@
 
         <!-- Footer -->
         <TextBlock Grid.Row="3"
-                   Text="{Binding ResultsCount, Mode=OneWay, StringFormat='{}&#x05E0;&#x05DE;&#x05E6;&#x05D0;&#x05D5; {0} &#x05DE;&#x05E9;&#x05D7;&#x05E7;&#x05D9;&#x05DD;'}"
+                   Text="{Binding GamesFoundText, Mode=OneWay}"
                    Foreground="{DynamicResource SecondaryText}"
                    Margin="0,8,0,0" FontSize="12"/>
     </Grid>

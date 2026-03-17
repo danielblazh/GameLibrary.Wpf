@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using GameLibrary.Wpf.Models;
+using GameLibrary.Wpf.Services;
 
 namespace GameLibrary.Wpf.ViewModels
 {
@@ -12,7 +13,7 @@ namespace GameLibrary.Wpf.ViewModels
         {
             _main = main;
 
-            Roles = new List<string> { "\u05D4\u05DB\u05DC", "Admin", "User", "Guest" }; // הכל
+            Roles = new List<string> { TranslationSource.Instance["All"], "Admin", "User", "Guest" }; // הכל
             SelectedRole = Roles[0];
 
             SaveUserCommand = new RelayCommand(DoSaveUser, CanSaveUser);
@@ -75,7 +76,7 @@ namespace GameLibrary.Wpf.ViewModels
             set { SetProperty(ref _formPassword, value); SaveUserCommand.RaiseCanExecuteChanged(); }
         }
 
-        public string FormTitle => IsEditingUser ? "\u05E2\u05E8\u05D9\u05DB\u05EA \u05DE\u05E9\u05EA\u05DE\u05E9" : "\u05D4\u05D5\u05E1\u05E4\u05EA \u05DE\u05E9\u05EA\u05DE\u05E9"; // עריכת משתמש / הוספת משתמש
+        public string FormTitle => IsEditingUser ? TranslationSource.Instance["EditUser"] : TranslationSource.Instance["AddUser"];
 
         public RelayCommand SaveUserCommand { get; }
         public RelayCommand<User> DeleteUserCommand { get; }
@@ -99,7 +100,7 @@ namespace GameLibrary.Wpf.ViewModels
                     u.Username.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
                     u.Email.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
 
-            if (SelectedRole != "\u05D4\u05DB\u05DC" && !string.IsNullOrEmpty(SelectedRole)) // הכל
+            if (SelectedRole != TranslationSource.Instance["All"] && !string.IsNullOrEmpty(SelectedRole)) // הכל
                 filtered = filtered.Where(u => u.Role == SelectedRole);
 
             foreach (var user in filtered)
@@ -152,8 +153,8 @@ namespace GameLibrary.Wpf.ViewModels
         {
             if (user == null) return;
             var result = System.Windows.MessageBox.Show(
-                $"\u05D4\u05D0\u05DD \u05DC\u05DE\u05D7\u05D5\u05E7 \u05D0\u05EA \u05D4\u05DE\u05E9\u05EA\u05DE\u05E9 \"{user.Username}\"?", // האם למחוק את המשתמש
-                "\u05D0\u05D9\u05E9\u05D5\u05E8 \u05DE\u05D7\u05D9\u05E7\u05D4", // אישור מחיקה
+                string.Format(TranslationSource.Instance["ConfirmDeleteUser"], user.Username),
+                TranslationSource.Instance["ConfirmDelete"],
                 System.Windows.MessageBoxButton.YesNo,
                 System.Windows.MessageBoxImage.Warning);
 

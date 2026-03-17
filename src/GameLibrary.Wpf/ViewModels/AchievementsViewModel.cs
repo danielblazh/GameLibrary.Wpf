@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using GameLibrary.Wpf.Models;
+using GameLibrary.Wpf.Services;
 
 namespace GameLibrary.Wpf.ViewModels
 {
@@ -15,7 +16,7 @@ namespace GameLibrary.Wpf.ViewModels
             _gameId = gameId;
             _gameTitle = gameTitle;
 
-            PageTitle = $"\U0001F3C6 \u05D4\u05D9\u05E9\u05D2\u05D9\u05DD — {gameTitle}"; // 🏆 הישגים
+            PageTitle = string.Format(TranslationSource.Instance["AchievementsFor"], gameTitle);
 
             AddCommand = new RelayCommand(DoAdd, () => !string.IsNullOrWhiteSpace(NewTitle));
             ToggleUnlockCommand = new RelayCommand<Achievement>(DoToggle);
@@ -82,8 +83,8 @@ namespace GameLibrary.Wpf.ViewModels
         {
             if (a == null) return;
             var result = System.Windows.MessageBox.Show(
-                $"\u05D4\u05D0\u05DD \u05DC\u05DE\u05D7\u05D5\u05E7 \u05D0\u05EA \u05D4\u05D4\u05D9\u05E9\u05D2 \"{a.Title}\"?",
-                "\u05D0\u05D9\u05E9\u05D5\u05E8 \u05DE\u05D7\u05D9\u05E7\u05D4",
+                string.Format(TranslationSource.Instance["ConfirmDeleteAchievement"], a.Title),
+                TranslationSource.Instance["ConfirmDelete"],
                 System.Windows.MessageBoxButton.YesNo,
                 System.Windows.MessageBoxImage.Warning);
             if (result == System.Windows.MessageBoxResult.Yes)

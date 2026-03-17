@@ -1,6 +1,7 @@
 <UserControl x:Class="GameLibrary.Wpf.Views.LeaderboardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:services="clr-namespace:GameLibrary.Wpf.Services">
 
     <Grid Background="{DynamicResource AppBackground}" Margin="16">
         <Grid.RowDefinitions>
@@ -10,10 +11,10 @@
 
         <!-- Header -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,16">
-            <Button Content="&#x2190; &#x05D7;&#x05D6;&#x05E8;&#x05D4;"
+            <Button Content="{Binding [Back], Source={x:Static services:TranslationSource.Instance}}"
                     Command="{Binding BackCommand}"
                     Style="{StaticResource SecondaryButton}" Margin="0,0,16,0"/>
-            <TextBlock Text="&#x1F3C6; &#x05DC;&#x05D5;&#x05D7; &#x05EA;&#x05D5;&#x05E6;&#x05D0;&#x05D5;&#x05EA;"
+            <TextBlock Text="{Binding [LeaderboardTitle], Source={x:Static services:TranslationSource.Instance}}"
                        FontSize="24" FontWeight="Bold"
                        Foreground="{DynamicResource PrimaryText}" VerticalAlignment="Center"/>
         </StackPanel>
@@ -34,19 +35,19 @@
                   AlternatingRowBackground="{DynamicResource GridRowAlt}">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="&#x05DE;&#x05E7;&#x05D5;&#x05DD;"
+                <DataGridTextColumn Header="{Binding [Rank], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Rank}" Width="60"/>
-                <DataGridTextColumn Header="&#x05E9;&#x05DD; &#x05DE;&#x05E9;&#x05EA;&#x05DE;&#x05E9;"
+                <DataGridTextColumn Header="{Binding [Username], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding Username}" Width="*"/>
-                <DataGridTextColumn Header="&#x05E9;&#x05E2;&#x05D5;&#x05EA; &#x05DE;&#x05E9;&#x05D7;&#x05E7;"
+                <DataGridTextColumn Header="{Binding [HoursPlayed], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding TotalHours, StringFormat={}{0:F1}}" Width="120"/>
-                <DataGridTextColumn Header="&#x05D4;&#x05D5;&#x05E9;&#x05DC;&#x05DE;&#x05D5;"
+                <DataGridTextColumn Header="{Binding [CompletedGames], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding CompletedGames}" Width="100"/>
-                <DataGridTextColumn Header="&#x05E1;&#x05D4;&quot;&#x05DB; &#x05DE;&#x05E9;&#x05D7;&#x05E7;&#x05D9;&#x05DD;"
+                <DataGridTextColumn Header="{Binding [TotalGames], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding TotalGames}" Width="120"/>
-                <DataGridTextColumn Header="&#x05D3;&#x05D9;&#x05E8;&#x05D5;&#x05D2; &#x05DE;&#x05DE;&#x05D5;&#x05E6;&#x05E2;"
+                <DataGridTextColumn Header="{Binding [AverageRating], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding AverageRating, StringFormat={}{0:F1}}" Width="120"/>
-                <DataGridTextColumn Header="&#x1F3C6; &#x05D4;&#x05D9;&#x05E9;&#x05D2;&#x05D9;&#x05DD;"
+                <DataGridTextColumn Header="{Binding [Achievements], Source={x:Static services:TranslationSource.Instance}}"
                                     Binding="{Binding UnlockedAchievements}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>

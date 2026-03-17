@@ -1,3 +1,5 @@
+using GameLibrary.Wpf.Services;
+
 namespace GameLibrary.Wpf.ViewModels
 {
     public class LoginViewModel : BaseViewModel
@@ -69,7 +71,7 @@ namespace GameLibrary.Wpf.ViewModels
             }
             else
             {
-                ErrorMessage = "\u26A0\uFE0F שם משתמש או סיסמה שגויים";
+                ErrorMessage = TranslationSource.Instance["LoginError"];
             }
         }
     }

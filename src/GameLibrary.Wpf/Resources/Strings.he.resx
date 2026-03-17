@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <!-- App -->
+  <data name="AppTitle" xml:space="preserve"><value>🎮 ספריית משחקים</value></data>
+  <data name="Version" xml:space="preserve"><value>ספריית משחקים v1.0 | 2025</value></data>
+  <data name="Language" xml:space="preserve"><value>🌐 En</value></data>
+
+  <!-- Common -->
+  <data name="Login" xml:space="preserve"><value>כניסה</value></data>
+  <data name="Register" xml:space="preserve"><value>הרשמה</value></data>
+  <data name="Back" xml:space="preserve"><value>← חזרה</value></data>
+  <data name="Save" xml:space="preserve"><value>שמור</value></data>
+  <data name="Cancel" xml:space="preserve"><value>ביטול</value></data>
+  <data name="Add" xml:space="preserve"><value>➕ הוסף</value></data>
+  <data name="All" xml:space="preserve"><value>הכל</value></data>
+  <data name="Logout" xml:space="preserve"><value>🚪 יציאה</value></data>
+  <data name="Actions" xml:space="preserve"><value>פעולות</value></data>
+
+  <!-- MainPage -->
+  <data name="MainPageSubtitle" xml:space="preserve"><value>נהל את ספריית המשחקים שלך</value></data>
+
+  <!-- Login -->
+  <data name="LoginTitle" xml:space="preserve"><value>🎮 כניסה</value></data>
+  <data name="Username" xml:space="preserve"><value>שם משתמש</value></data>
+  <data name="Password" xml:space="preserve"><value>סיסמה</value></data>
+  <data name="NoAccountRegister" xml:space="preserve"><value>אין לך חשבון? הירשם</value></data>
+  <data name="BackToLogin" xml:space="preserve"><value>← חזרה לכניסה</value></data>
+  <data name="LoginError" xml:space="preserve"><value>⚠️ שם משתמש או סיסמה שגויים</value></data>
+
+  <!-- Register -->
+  <data name="RegisterTitle" xml:space="preserve"><value>🎮 הרשמה</value></data>
+  <data name="Email" xml:space="preserve"><value>אימייל</value></data>
+  <data name="ConfirmPassword" xml:space="preserve"><value>אישור סיסמה</value></data>
+  <data name="RegisterSuccess" xml:space="preserve"><value>✅ נרשמת בהצלחה! מעביר לכניסה...</value></data>
+  <data name="UsernameExists" xml:space="preserve"><value>⚠ שם משתמש כבר קיים</value></data>
+
+  <!-- Validation -->
+  <data name="FieldRequired" xml:space="preserve"><value>⚠ שדה זה חובה</value></data>
+  <data name="UsernameMinLength" xml:space="preserve"><value>⚠ שם משתמש חייב להכיל לפחות 3 תווים</value></data>
+  <data name="UsernameNoSpaces" xml:space="preserve"><value>⚠ שם משתמש ללא רווחים</value></data>
+  <data name="InvalidEmail" xml:space="preserve"><value>⚠ כתובת אימייל לא תקינה</value></data>
+  <data name="WeakPassword" xml:space="preserve"><value>⚠ הסיסמה חלשה מדי</value></data>
+  <data name="PasswordMismatch" xml:space="preserve"><value>⚠ הסיסמאות אינן תואמות</value></data>
+  <data name="ValueMustBePositive" xml:space="preserve"><value>⚠ הערך חייב להיות גדול מ-0</value></data>
+  <data name="DuplicateGame" xml:space="preserve"><value>⚠ משחק עם שם זה כבר קיים</value></data>
+
+  <!-- Dashboard -->
+  <data name="GoodMorning" xml:space="preserve"><value>בוקר טוב</value></data>
+  <data name="GoodAfternoon" xml:space="preserve"><value>צהריים טובים</value></data>
+  <data name="GoodEvening" xml:space="preserve"><value>ערב טוב</value></data>
+  <data name="TotalGames" xml:space="preserve"><value>🎮 סה"כ משחקים</value></data>
+  <data name="PlayingNow" xml:space="preserve"><value>▶️ משחק עכשיו</value></data>
+  <data name="CompletedGames" xml:space="preserve"><value>✅ הושלמו</value></data>
+  <data name="HoursPlayed" xml:space="preserve"><value>⏱️ שעות משחק</value></data>
+  <data name="QuickNav" xml:space="preserve"><value>ניווט מהיר</value></data>
+
+  <!-- Sidebar -->
+  <data name="Menu" xml:space="preserve"><value>תפריט</value></data>
+  <data name="SidebarHome" xml:space="preserve"><value>🏠 דף ראשי</value></data>
+  <data name="SidebarLibrary" xml:space="preserve"><value>🎮 ספרייה</value></data>
+  <data name="SidebarStats" xml:space="preserve"><value>📊 סטטיסטיקות</value></data>
+  <data name="SidebarLeaderboard" xml:space="preserve"><value>🏆 לוח תוצאות</value></data>
+  <data name="SidebarAdmin" xml:space="preserve"><value>🛠️ ניהול</value></data>
+
+  <!-- Game Library -->
+  <data name="GameLibraryTitle" xml:space="preserve"><value>🎮 ספריית המשחקים</value></data>
+  <data name="AddGame" xml:space="preserve"><value>➕ הוסף משחק</value></data>
+  <data name="Status" xml:space="preserve"><value>סטטוס</value></data>
+  <data name="GameName" xml:space="preserve"><value>שם משחק</value></data>
+  <data name="Genre" xml:space="preserve"><value>קטגוריה</value></data>
+  <data name="Platform" xml:space="preserve"><value>פלטפורמה</value></data>
+  <data name="Rating" xml:space="preserve"><value>דירוג</value></data>
+  <data name="Hours" xml:space="preserve"><value>שעות</value></data>
+  <data name="Level" xml:space="preserve"><value>רמה</value></data>
+  <data name="GamesFound" xml:space="preserve"><value>נמצאו {0} משחקים</value></data>
+
+  <!-- Game Profile -->
+  <data name="AddGameTitle" xml:space="preserve"><value>הוספת משחק חדש</value></data>
+  <data name="EditGameTitle" xml:space="preserve"><value>עריכת משחק</value></data>
+  <data name="RatingLabel" xml:space="preserve"><value>דירוג (0-10)</value></data>
+  <data name="LevelLabel" xml:space="preserve"><value>רמה (1-5)</value></data>
+  <data name="HoursPlayedLabel" xml:space="preserve"><value>שעות משחק</value></data>
+  <data name="ReleaseDate" xml:space="preserve"><value>תאריך השקה</value></data>
+  <data name="Notes" xml:space="preserve"><value>הערות</value></data>
+
+  <!-- Statistics -->
+  <data name="StatisticsTitle" xml:space="preserve"><value>📊 סטטיסטיקות</value></data>
+  <data name="TotalGamesLabel" xml:space="preserve"><value>סה"כ משחקים</value></data>
+  <data name="TotalHoursLabel" xml:space="preserve"><value>סה"כ שעות</value></data>
+  <data name="AverageRating" xml:space="preserve"><value>דירוג ממוצע</value></data>
+  <data name="Achievements" xml:space="preserve"><value>🏆 הישגים</value></data>
+  <data name="ByStatus" xml:space="preserve"><value>לפי סטטוס</value></data>
+  <data name="ByGenre" xml:space="preserve"><value>לפי קטגוריה</value></data>
+
+  <!-- Admin -->
+  <data name="AdminTitle" xml:space="preserve"><value>🛠️ ניהול משתמשים</value></data>
+  <data name="AddUser" xml:space="preserve"><value>הוספת משתמש</value></data>
+  <data name="EditUser" xml:space="preserve"><value>עריכת משתמש</value></data>
+  <data name="Role" xml:space="preserve"><value>תפקיד</value></data>
+  <data name="JoinDate" xml:space="preserve"><value>תאריך הצטרפות</value></data>
+
+  <!-- Achievements -->
+  <data name="AchievementsFor" xml:space="preserve"><value>🏆 הישגים — {0}</value></data>
+  <data name="AchievementName" xml:space="preserve"><value>שם הישג</value></data>
+  <data name="Description" xml:space="preserve"><value>תיאור</value></data>
+  <data name="UnlockDate" xml:space="preserve"><value>תאריך פתיחה</value></data>
+  <data name="StatusLabel" xml:space="preserve"><value>מצב</value></data>
+
+  <!-- Leaderboard -->
+  <data name="LeaderboardTitle" xml:space="preserve"><value>🏆 לוח תוצאות</value></data>
+  <data name="Rank" xml:space="preserve"><value>מקום</value></data>
+
+  <!-- Levels -->
+  <data name="LevelBeginner" xml:space="preserve"><value>מתחיל</value></data>
+  <data name="LevelIntermediate" xml:space="preserve"><value>בינוני</value></data>
+  <data name="LevelAdvanced" xml:space="preserve"><value>מתקדם</value></data>
+  <data name="LevelExpert" xml:space="preserve"><value>מומחה</value></data>
+  <data name="LevelMaster" xml:space="preserve"><value>מאסטר</value></data>
+  <data name="LevelUnknown" xml:space="preserve"><value>לא ידוע</value></data>
+
+  <!-- Confirm Dialogs -->
+  <data name="ConfirmDelete" xml:space="preserve"><value>אישור מחיקה</value></data>
+  <data name="ConfirmDeleteGame" xml:space="preserve"><value>האם למחוק את "{0}"?</value></data>
+  <data name="ConfirmDeleteUser" xml:space="preserve"><value>האם למחוק את המשתמש "{0}"?</value></data>
+  <data name="ConfirmDeleteAchievement" xml:space="preserve"><value>האם למחוק את ההישג "{0}"?</value></data>
+</root>

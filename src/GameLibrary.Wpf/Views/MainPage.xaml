@@ -1,6 +1,7 @@
 <UserControl x:Class="GameLibrary.Wpf.Views.MainPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:services="clr-namespace:GameLibrary.Wpf.Services">
 
     <Grid Background="{DynamicResource AppBackground}">
         <Border Background="{DynamicResource CardBackground}"
@@ -16,21 +17,21 @@
                            HorizontalAlignment="Center"
                            Margin="0,0,0,16"/>
 
-                <TextBlock Text="Game Library"
+                <TextBlock Text="{Binding [AppTitle], Source={x:Static services:TranslationSource.Instance}}"
                            FontSize="32"
                            FontWeight="Bold"
                            Foreground="{DynamicResource PrimaryText}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8"/>
 
-                <TextBlock Text="&#x05E0;&#x05D4;&#x05DC; &#x05D0;&#x05EA; &#x05E1;&#x05E4;&#x05E8;&#x05D9;&#x05D9;&#x05EA; &#x05D4;&#x05DE;&#x05E9;&#x05D7;&#x05E7;&#x05D9;&#x05DD; &#x05E9;&#x05DC;&#x05DA;"
+                <TextBlock Text="{Binding [MainPageSubtitle], Source={x:Static services:TranslationSource.Instance}}"
                            FontSize="16"
                            Foreground="{DynamicResource SecondaryText}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,32"/>
 
                 <!-- Buttons -->
-                <Button Content="&#x05DB;&#x05E0;&#x05D9;&#x05E1;&#x05D4;"
+                <Button Content="{Binding [Login], Source={x:Static services:TranslationSource.Instance}}"
                         Command="{Binding LoginCommand}"
                         Style="{StaticResource PrimaryButton}"
                         Width="240"
@@ -38,7 +39,7 @@
                         Margin="0,0,0,16"
                         FontSize="16"/>
 
-                <Button Content="&#x05D4;&#x05E8;&#x05E9;&#x05DE;&#x05D4;"
+                <Button Content="{Binding [Register], Source={x:Static services:TranslationSource.Instance}}"
                         Command="{Binding RegisterCommand}"
                         Style="{StaticResource SecondaryButton}"
                         Width="240"

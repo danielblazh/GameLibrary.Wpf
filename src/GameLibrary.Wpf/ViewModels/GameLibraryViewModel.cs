@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using GameLibrary.Wpf.Models;
+using GameLibrary.Wpf.Services;
 
 namespace GameLibrary.Wpf.ViewModels
 {
@@ -12,8 +13,8 @@ namespace GameLibrary.Wpf.ViewModels
         {
             _main = main;
 
-            Statuses = new List<string> { "\u05D4\u05DB\u05DC", "Playing", "Queued", "Completed", "Dropped" }; // הכל
-            Genres = new List<string> { "\u05D4\u05DB\u05DC" }; // הכל
+            Statuses = new List<string> { TranslationSource.Instance["All"], "Playing", "Queued", "Completed", "Dropped" }; // הכל
+            Genres = new List<string> { TranslationSource.Instance["All"] }; // הכל
             SelectedStatus = Statuses[0];
             SelectedGenre = Genres[0];
 
@@ -65,7 +66,17 @@ namespace GameLibrary.Wpf.ViewModels
         public List<string> Genres { get; set; }
 
         private int _resultsCount;
-        public int ResultsCount { get => _resultsCount; set => SetProperty(ref _resultsCount, value); }
+        public int ResultsCount
+        {
+            get => _resultsCount;
+            set
+            {
+                SetProperty(ref _resultsCount, value);
+                OnPropertyChanged(nameof(GamesFoundText));
+            }
+        }
+
+        public string GamesFoundText => string.Format(TranslationSource.Instance["GamesFound"], ResultsCount);
 
         public RelayCommand AddGameCommand { get; }
         public RelayCommand<Game> EditGameCommand { get; }
@@ -80,7 +91,7 @@ namespace GameLibrary.Wpf.ViewModels
 
             // Build genre list
             var genres = _allGames.Select(g => g.Genre).Distinct().OrderBy(g => g).ToList();
-            genres.Insert(0, "\u05D4\u05DB\u05DC"); // הכל
+            genres.Insert(0, TranslationSource.Instance["All"]); // הכל
             Genres = genres;
             OnPropertyChanged(nameof(Genres));
 
@@ -95,10 +106,10 @@ namespace GameLibrary.Wpf.ViewModels
             if (!string.IsNullOrWhiteSpace(SearchText))
                 filtered = filtered.Where(g => g.Title.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
 
-            if (SelectedStatus != "\u05D4\u05DB\u05DC" && !string.IsNullOrEmpty(SelectedStatus)) // הכל
+            if (SelectedStatus != TranslationSource.Instance["All"] && !string.IsNullOrEmpty(SelectedStatus)) // הכל
                 filtered = filtered.Where(g => g.Status == SelectedStatus);
 
-            if (SelectedGenre != "\u05D4\u05DB\u05DC" && !string.IsNullOrEmpty(SelectedGenre)) // הכל
+            if (SelectedGenre != TranslationSource.Instance["All"] && !string.IsNullOrEmpty(SelectedGenre)) // הכל
                 filtered = filtered.Where(g => g.Genre == SelectedGenre);
 
             foreach (var game in filtered)
@@ -111,8 +122,8 @@ namespace GameLibrary.Wpf.ViewModels
         {
             if (game == null) return;
             var result = System.Windows.MessageBox.Show(
-                $"\u05D4\u05D0\u05DD \u05DC\u05DE\u05D7\u05D5\u05E7 \u05D0\u05EA \"{game.Title}\"?", // האם למחוק את
-                "\u05D0\u05D9\u05E9\u05D5\u05E8 \u05DE\u05D7\u05D9\u05E7\u05D4", // אישור מחיקה
+                string.Format(TranslationSource.Instance["ConfirmDeleteGame"], game.Title),
+                TranslationSource.Instance["ConfirmDelete"],
                 System.Windows.MessageBoxButton.YesNo,
                 System.Windows.MessageBoxImage.Warning);
 
