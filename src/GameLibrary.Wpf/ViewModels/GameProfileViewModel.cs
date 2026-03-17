@@ -58,21 +58,21 @@ namespace GameLibrary.Wpf.ViewModels
         public string Title
         {
             get => _title;
-            set { SetProperty(ref _title, value); ValidateTitle(); SaveCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _title, value); ValidateTitle(); SaveCommand?.RaiseCanExecuteChanged(); }
         }
 
         private string _genre = string.Empty;
         public string Genre
         {
             get => _genre;
-            set { SetProperty(ref _genre, value); SaveCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _genre, value); SaveCommand?.RaiseCanExecuteChanged(); }
         }
 
         private string _platform = string.Empty;
         public string Platform
         {
             get => _platform;
-            set { SetProperty(ref _platform, value); SaveCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _platform, value); SaveCommand?.RaiseCanExecuteChanged(); }
         }
 
         private int _rating;
@@ -100,7 +100,7 @@ namespace GameLibrary.Wpf.ViewModels
         public string HoursPlayed
         {
             get => _hoursPlayed;
-            set { SetProperty(ref _hoursPlayed, value); ValidateHours(); SaveCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _hoursPlayed, value); ValidateHours(); SaveCommand?.RaiseCanExecuteChanged(); }
         }
 
         private DateTime? _releaseDate;

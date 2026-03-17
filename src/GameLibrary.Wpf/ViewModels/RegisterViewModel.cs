@@ -22,7 +22,7 @@ namespace GameLibrary.Wpf.ViewModels
             {
                 SetProperty(ref _username, value);
                 ValidateUsername();
-                RegisterCommand.RaiseCanExecuteChanged();
+                RegisterCommand?.RaiseCanExecuteChanged();
             }
         }
 
@@ -34,7 +34,7 @@ namespace GameLibrary.Wpf.ViewModels
             {
                 SetProperty(ref _email, value);
                 ValidateEmail();
-                RegisterCommand.RaiseCanExecuteChanged();
+                RegisterCommand?.RaiseCanExecuteChanged();
             }
         }
 
@@ -47,7 +47,7 @@ namespace GameLibrary.Wpf.ViewModels
                 SetProperty(ref _password, value);
                 ValidatePassword();
                 ValidateConfirmPassword();
-                RegisterCommand.RaiseCanExecuteChanged();
+                RegisterCommand?.RaiseCanExecuteChanged();
             }
         }
 
@@ -59,7 +59,7 @@ namespace GameLibrary.Wpf.ViewModels
             {
                 SetProperty(ref _confirmPassword, value);
                 ValidateConfirmPassword();
-                RegisterCommand.RaiseCanExecuteChanged();
+                RegisterCommand?.RaiseCanExecuteChanged();
             }
         }
 

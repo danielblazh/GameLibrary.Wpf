@@ -33,7 +33,7 @@ namespace GameLibrary.Wpf.ViewModels
         public string NewTitle
         {
             get => _newTitle;
-            set { SetProperty(ref _newTitle, value); AddCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _newTitle, value); AddCommand?.RaiseCanExecuteChanged(); }
         }
 
         private string _newDescription = string.Empty;

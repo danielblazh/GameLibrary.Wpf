@@ -52,28 +52,28 @@ namespace GameLibrary.Wpf.ViewModels
         public string FormUsername
         {
             get => _formUsername;
-            set { SetProperty(ref _formUsername, value); SaveUserCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _formUsername, value); SaveUserCommand?.RaiseCanExecuteChanged(); }
         }
 
         private string _formEmail = string.Empty;
         public string FormEmail
         {
             get => _formEmail;
-            set { SetProperty(ref _formEmail, value); SaveUserCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _formEmail, value); SaveUserCommand?.RaiseCanExecuteChanged(); }
         }
 
         private string _formRole = "User";
         public string FormRole
         {
             get => _formRole;
-            set { SetProperty(ref _formRole, value); SaveUserCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _formRole, value); SaveUserCommand?.RaiseCanExecuteChanged(); }
         }
 
         private string _formPassword = string.Empty;
         public string FormPassword
         {
             get => _formPassword;
-            set { SetProperty(ref _formPassword, value); SaveUserCommand.RaiseCanExecuteChanged(); }
+            set { SetProperty(ref _formPassword, value); SaveUserCommand?.RaiseCanExecuteChanged(); }
         }
 
         public string FormTitle => IsEditingUser ? TranslationSource.Instance["EditUser"] : TranslationSource.Instance["AddUser"];

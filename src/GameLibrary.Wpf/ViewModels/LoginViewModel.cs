@@ -22,7 +22,7 @@ namespace GameLibrary.Wpf.ViewModels
             set
             {
                 SetProperty(ref _username, value);
-                LoginCommand.RaiseCanExecuteChanged();
+                LoginCommand?.RaiseCanExecuteChanged();
             }
         }
 
@@ -33,7 +33,7 @@ namespace GameLibrary.Wpf.ViewModels
             set
             {
                 SetProperty(ref _password, value);
-                LoginCommand.RaiseCanExecuteChanged();
+                LoginCommand?.RaiseCanExecuteChanged();
             }
         }
 
