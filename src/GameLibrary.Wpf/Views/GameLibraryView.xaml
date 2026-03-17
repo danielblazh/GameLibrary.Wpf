@@ -1,0 +1,121 @@
+<UserControl x:Class="GameLibrary.Wpf.Views.GameLibraryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:GameLibrary.Wpf.Converters">
+
+    <UserControl.Resources>
+        <converters:RatingToStarsConverter x:Key="RatingToStars"/>
+        <converters:StatusToIconConverter x:Key="StatusToIcon"/>
+        <converters:StatusToColorConverter x:Key="StatusToColor"/>
+        <converters:HoursToTextConverter x:Key="HoursToText"/>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource AppBackground}" Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,16">
+            <Button Content="&#x2190; &#x05D7;&#x05D6;&#x05E8;&#x05D4;"
+                    Command="{Binding BackCommand}"
+                    Style="{StaticResource SecondaryButton}" Margin="0,0,16,0"/>
+            <TextBlock Text="&#x1F3AE; &#x05E1;&#x05E4;&#x05E8;&#x05D9;&#x05D9;&#x05EA; &#x05D4;&#x05DE;&#x05E9;&#x05D7;&#x05E7;&#x05D9;&#x05DD;"
+                       FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource PrimaryText}" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Search & Filter Bar -->
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0"
+                     Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource StyledTextBox}"
+                     Margin="0,0,8,0"/>
+
+            <ComboBox Grid.Column="1"
+                      ItemsSource="{Binding Statuses, Mode=OneTime}"
+                      SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"
+                      Style="{StaticResource StyledComboBox}"
+                      MinWidth="120" Margin="0,0,8,0"/>
+
+            <ComboBox Grid.Column="2"
+                      ItemsSource="{Binding Genres}"
+                      SelectedItem="{Binding SelectedGenre, Mode=TwoWay}"
+                      Style="{StaticResource StyledComboBox}"
+                      MinWidth="120" Margin="0,0,8,0"/>
+
+            <Button Grid.Column="3"
+                    Content="&#x2795; &#x05D4;&#x05D5;&#x05E1;&#x05E3; &#x05DE;&#x05E9;&#x05D7;&#x05E7;"
+                    Command="{Binding AddGameCommand}"
+                    Style="{StaticResource PrimaryButton}"/>
+        </Grid>
+
+        <!-- Games DataGrid -->
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding Games}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  Background="{DynamicResource CardBackground}"
+                  Foreground="{DynamicResource PrimaryText}"
+                  BorderThickness="0"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  CanUserResizeRows="False"
+                  RowBackground="{DynamicResource CardBackground}"
+                  AlternatingRowBackground="{DynamicResource GridRowAlt}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="&#x05E1;&#x05D8;&#x05D8;&#x05D5;&#x05E1;"
+                                    Binding="{Binding Status, Converter={StaticResource StatusToIcon}}"
+                                    Width="60"/>
+                <DataGridTextColumn Header="&#x05E9;&#x05DD; &#x05DE;&#x05E9;&#x05D7;&#x05E7;"
+                                    Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="&#x05E7;&#x05D8;&#x05D2;&#x05D5;&#x05E8;&#x05D9;&#x05D4;"
+                                    Binding="{Binding Genre}" Width="120"/>
+                <DataGridTextColumn Header="&#x05E4;&#x05DC;&#x05D8;&#x05E4;&#x05D5;&#x05E8;&#x05DE;&#x05D4;"
+                                    Binding="{Binding Platform}" Width="120"/>
+                <DataGridTextColumn Header="&#x05D3;&#x05D9;&#x05E8;&#x05D5;&#x05D2;"
+                                    Binding="{Binding Rating, Converter={StaticResource RatingToStars}}"
+                                    Width="120"/>
+                <DataGridTextColumn Header="&#x05E9;&#x05E2;&#x05D5;&#x05EA;"
+                                    Binding="{Binding HoursPlayed, Converter={StaticResource HoursToText}}"
+                                    Width="100"/>
+                <DataGridTemplateColumn Header="&#x05E4;&#x05E2;&#x05D5;&#x05DC;&#x05D5;&#x05EA;" Width="140">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="&#x270F;&#xFE0F;"
+                                        Command="{Binding DataContext.EditGameCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Padding="8,4" Margin="0,0,4,0" FontSize="12"/>
+                                <Button Content="&#x1F5D1;&#xFE0F;"
+                                        Command="{Binding DataContext.DeleteGameCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource DangerButton}"
+                                        Padding="8,4" FontSize="12"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Footer -->
+        <TextBlock Grid.Row="3"
+                   Text="{Binding ResultsCount, Mode=OneWay, StringFormat='{}&#x05E0;&#x05DE;&#x05E6;&#x05D0;&#x05D5; {0} &#x05DE;&#x05E9;&#x05D7;&#x05E7;&#x05D9;&#x05DD;'}"
+                   Foreground="{DynamicResource SecondaryText}"
+                   Margin="0,8,0,0" FontSize="12"/>
+    </Grid>
+</UserControl>

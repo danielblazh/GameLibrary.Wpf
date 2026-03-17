@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="AppBackground"  Color="#F5F6F7"/>
+    <SolidColorBrush x:Key="CardBackground" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="PrimaryText"    Color="#2D3436"/>
+    <SolidColorBrush x:Key="SecondaryText"  Color="#636E72"/>
+    <SolidColorBrush x:Key="SidebarBg"      Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="HeaderBg"       Color="#0984E3"/>
+    <SolidColorBrush x:Key="FooterBg"       Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="InputBg"        Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="InputBorder"    Color="#DFE6E9"/>
+    <SolidColorBrush x:Key="InputText"      Color="#2D3436"/>
+    <SolidColorBrush x:Key="GridRowAlt"     Color="#F0F6FF"/>
+    <SolidColorBrush x:Key="GridRowHover"   Color="#E8F4FD"/>
+</ResourceDictionary>
