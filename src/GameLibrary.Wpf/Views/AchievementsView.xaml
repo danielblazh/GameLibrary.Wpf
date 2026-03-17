@@ -1,0 +1,112 @@
+<UserControl x:Class="GameLibrary.Wpf.Views.AchievementsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:GameLibrary.Wpf.Converters">
+
+    <UserControl.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource AppBackground}" Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,16">
+            <Button Content="&#x2190; &#x05D7;&#x05D6;&#x05E8;&#x05D4;"
+                    Command="{Binding BackCommand}"
+                    Style="{StaticResource SecondaryButton}" Margin="0,0,16,0"/>
+            <TextBlock Text="{Binding PageTitle, Mode=OneWay}"
+                       FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource PrimaryText}" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Add Achievement Form -->
+        <Border Grid.Row="1" Background="{DynamicResource CardBackground}"
+                CornerRadius="8" Padding="16" Margin="0,0,0,16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0"
+                         Text="{Binding NewTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource StyledTextBox}"/>
+                <TextBox Grid.Column="2"
+                         Text="{Binding NewDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource StyledTextBox}"/>
+                <Button Grid.Column="4"
+                        Content="&#x2795; &#x05D4;&#x05D5;&#x05E1;&#x05E3;"
+                        Command="{Binding AddCommand}"
+                        Style="{StaticResource PrimaryButton}"/>
+            </Grid>
+        </Border>
+
+        <!-- Achievements List -->
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding Achievements}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  Background="{DynamicResource CardBackground}"
+                  Foreground="{DynamicResource PrimaryText}"
+                  BorderThickness="0"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  CanUserResizeRows="False"
+                  RowBackground="{DynamicResource CardBackground}"
+                  AlternatingRowBackground="{DynamicResource GridRowAlt}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="&#x05E9;&#x05DD; &#x05D4;&#x05D9;&#x05E9;&#x05D2;"
+                                    Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="&#x05EA;&#x05D9;&#x05D0;&#x05D5;&#x05E8;"
+                                    Binding="{Binding Description}" Width="*"/>
+                <DataGridTemplateColumn Header="&#x05DE;&#x05E6;&#x05D1;" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="&#x1F512;"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsUnlocked}" Value="True">
+                                                <Setter Property="Text" Value="&#x1F513;"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="&#x05EA;&#x05D0;&#x05E8;&#x05D9;&#x05DA; &#x05E4;&#x05EA;&#x05D9;&#x05D7;&#x05D4;"
+                                    Binding="{Binding UnlockedDate, StringFormat='{}{0:dd/MM/yyyy}'}" Width="120"/>
+                <DataGridTemplateColumn Header="&#x05E4;&#x05E2;&#x05D5;&#x05DC;&#x05D5;&#x05EA;" Width="140">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="&#x1F504;"
+                                        Command="{Binding DataContext.ToggleUnlockCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Padding="8,4" Margin="0,0,4,0" FontSize="12"/>
+                                <Button Content="&#x1F5D1;&#xFE0F;"
+                                        Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource DangerButton}"
+                                        Padding="8,4" FontSize="12"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

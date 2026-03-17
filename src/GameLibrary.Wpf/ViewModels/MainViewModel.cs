@@ -22,6 +22,7 @@ namespace GameLibrary.Wpf.ViewModels
             NavigateToLibraryCommand = new RelayCommand(NavigateToGameLibrary);
             NavigateToStatsCommand = new RelayCommand(NavigateToStatistics);
             NavigateToAdminCommand = new RelayCommand(NavigateToAdmin);
+            NavigateToLeaderboardCommand = new RelayCommand(NavigateToLeaderboard);
 
             ApplyTheme();
             NavigateToMainPage();
@@ -71,6 +72,7 @@ namespace GameLibrary.Wpf.ViewModels
         public RelayCommand NavigateToLibraryCommand { get; }
         public RelayCommand NavigateToStatsCommand { get; }
         public RelayCommand NavigateToAdminCommand { get; }
+        public RelayCommand NavigateToLeaderboardCommand { get; }
 
         private void ToggleTheme()
         {
@@ -142,6 +144,16 @@ namespace GameLibrary.Wpf.ViewModels
         public void NavigateToAdmin()
         {
             _navigation.NavigateTo(new AdminViewModel(this));
+        }
+
+        public void NavigateToAchievements(int gameId, string gameTitle)
+        {
+            _navigation.NavigateTo(new AchievementsViewModel(this, gameId, gameTitle));
+        }
+
+        public void NavigateToLeaderboard()
+        {
+            _navigation.NavigateTo(new LeaderboardViewModel(this));
         }
 
         private void Logout()

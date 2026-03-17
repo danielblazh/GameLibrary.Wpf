@@ -75,6 +75,11 @@
                         Style="{StaticResource PrimaryButton}"
                         Margin="0,0,16,8" FontSize="16"/>
 
+                <Button Content="&#x1F3C6; &#x05DC;&#x05D5;&#x05D7; &#x05EA;&#x05D5;&#x05E6;&#x05D0;&#x05D5;&#x05EA;"
+                        Command="{Binding LeaderboardCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        Margin="0,0,16,8" FontSize="16"/>
+
                 <Button Content="&#x1F6E0;&#xFE0F; &#x05E0;&#x05D9;&#x05D4;&#x05D5;&#x05DC; &#x05DE;&#x05E9;&#x05EA;&#x05DE;&#x05E9;&#x05D9;&#x05DD;"
                         Command="{Binding AdminCommand}"
                         Style="{StaticResource PrimaryButton}"

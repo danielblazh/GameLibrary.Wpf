@@ -69,6 +69,21 @@
                     </StackPanel>
                 </Grid>
 
+                <!-- Level -->
+                <Grid Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="16"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="&#x05E8;&#x05DE;&#x05D4; (1-5)" Foreground="{DynamicResource PrimaryText}" FontSize="14" Margin="0,0,0,4"/>
+                        <ComboBox ItemsSource="{Binding LevelOptions, Mode=OneTime}"
+                                  SelectedItem="{Binding Level, Mode=TwoWay}"
+                                  Style="{StaticResource StyledComboBox}"/>
+                    </StackPanel>
+                </Grid>
+
                 <!-- Hours & Release Date -->
                 <Grid Margin="0,0,0,8">
                     <Grid.ColumnDefinitions>

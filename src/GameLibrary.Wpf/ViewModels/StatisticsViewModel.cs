@@ -24,6 +24,8 @@ namespace GameLibrary.Wpf.ViewModels
         public int TotalGames { get; private set; }
         public double TotalHours { get; private set; }
         public double AverageRating { get; private set; }
+        public int TotalAchievements { get; private set; }
+        public int UnlockedAchievements { get; private set; }
         public ObservableCollection<StatItem> StatusStats { get; } = new();
         public ObservableCollection<StatItem> GenreStats { get; } = new();
 
@@ -37,9 +39,14 @@ namespace GameLibrary.Wpf.ViewModels
             TotalHours = _main.Db.GetTotalHoursPlayed(userId);
             AverageRating = _main.Db.GetAverageRating(userId);
 
+            TotalAchievements = _main.Db.GetTotalAchievementsCount(userId);
+            UnlockedAchievements = _main.Db.GetUnlockedAchievementsCount(userId);
+
             OnPropertyChanged(nameof(TotalGames));
             OnPropertyChanged(nameof(TotalHours));
             OnPropertyChanged(nameof(AverageRating));
+            OnPropertyChanged(nameof(TotalAchievements));
+            OnPropertyChanged(nameof(UnlockedAchievements));
 
             var byStatus = _main.Db.GetGamesByStatus(userId);
             foreach (var kvp in byStatus)

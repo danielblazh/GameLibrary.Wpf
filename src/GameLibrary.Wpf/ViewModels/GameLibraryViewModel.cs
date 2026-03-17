@@ -20,6 +20,7 @@ namespace GameLibrary.Wpf.ViewModels
             AddGameCommand = new RelayCommand(() => _main.NavigateToGameProfile());
             EditGameCommand = new RelayCommand<Game>(g => { if (g != null) _main.NavigateToGameProfile(g); });
             DeleteGameCommand = new RelayCommand<Game>(DoDeleteGame);
+            AchievementsCommand = new RelayCommand<Game>(g => { if (g != null) _main.NavigateToAchievements(g.Id, g.Title); });
             BackCommand = new RelayCommand(() => _main.NavigateToDashboard());
 
             LoadGames();
@@ -69,6 +70,7 @@ namespace GameLibrary.Wpf.ViewModels
         public RelayCommand AddGameCommand { get; }
         public RelayCommand<Game> EditGameCommand { get; }
         public RelayCommand<Game> DeleteGameCommand { get; }
+        public RelayCommand<Game> AchievementsCommand { get; }
         public RelayCommand BackCommand { get; }
 
         private void LoadGames()

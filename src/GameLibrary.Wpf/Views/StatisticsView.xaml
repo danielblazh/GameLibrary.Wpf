@@ -39,6 +39,19 @@
                     <TextBlock Text="{Binding AverageRating, Mode=OneWay, StringFormat={}{0:F1}/10}" FontSize="32" FontWeight="Bold" Foreground="#FDCB6E"/>
                 </StackPanel>
             </Border>
+            <Border Background="{DynamicResource CardBackground}" CornerRadius="8" Padding="24" Margin="0,0,16,8" MinWidth="200">
+                <StackPanel>
+                    <TextBlock Text="&#x1F3C6; &#x05D4;&#x05D9;&#x05E9;&#x05D2;&#x05D9;&#x05DD;" Foreground="{DynamicResource SecondaryText}" FontSize="14"/>
+                    <TextBlock Foreground="#00B894" FontSize="32" FontWeight="Bold">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}/{1}">
+                                <Binding Path="UnlockedAchievements" Mode="OneWay"/>
+                                <Binding Path="TotalAchievements" Mode="OneWay"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
         </WrapPanel>
 
         <!-- Details -->

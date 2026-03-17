@@ -19,6 +19,7 @@ namespace GameLibrary.Wpf.ViewModels
             GenreOptions = new List<string> { "Action", "Adventure", "RPG", "Strategy", "Sports", "Puzzle", "Simulation", "Horror", "FPS", "Racing", "Other" };
             PlatformOptions = new List<string> { "PC", "PlayStation", "Xbox", "Nintendo Switch", "Mobile", "Other" };
             RatingOptions = Enumerable.Range(0, 11).ToList(); // 0-10
+            LevelOptions = Enumerable.Range(1, 5).ToList(); // 1-5
 
             if (game != null)
             {
@@ -27,6 +28,7 @@ namespace GameLibrary.Wpf.ViewModels
                 Platform = game.Platform;
                 Rating = game.Rating;
                 Status = game.Status;
+                Level = game.Level;
                 HoursPlayed = game.HoursPlayed.ToString("F1");
                 ReleaseDate = game.ReleaseDate;
                 Notes = game.Notes;
@@ -35,6 +37,7 @@ namespace GameLibrary.Wpf.ViewModels
             {
                 Status = "Queued";
                 Rating = 0;
+                Level = 1;
                 HoursPlayed = "0";
             }
 
@@ -48,6 +51,7 @@ namespace GameLibrary.Wpf.ViewModels
         public List<string> GenreOptions { get; }
         public List<string> PlatformOptions { get; }
         public List<int> RatingOptions { get; }
+        public List<int> LevelOptions { get; }
 
         private string _title = string.Empty;
         public string Title
@@ -82,6 +86,13 @@ namespace GameLibrary.Wpf.ViewModels
         {
             get => _status;
             set => SetProperty(ref _status, value);
+        }
+
+        private int _level = 1;
+        public int Level
+        {
+            get => _level;
+            set => SetProperty(ref _level, value);
         }
 
         private string _hoursPlayed = "0";
@@ -161,6 +172,7 @@ namespace GameLibrary.Wpf.ViewModels
             game.Platform = Platform;
             game.Rating = Rating;
             game.Status = Status;
+            game.Level = Level;
             game.HoursPlayed = double.Parse(HoursPlayed);
             game.ReleaseDate = ReleaseDate;
             game.Notes = Notes;

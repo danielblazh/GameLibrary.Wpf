@@ -11,6 +11,7 @@ namespace GameLibrary.Wpf.Models
         public double HoursPlayed { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public DateTime AddedDate { get; set; } = DateTime.Now;
+        public int Level { get; set; } = 1; // 1=Beginner, 2=Intermediate, 3=Advanced, 4=Expert, 5=Master
         public string Notes { get; set; } = string.Empty;
         public int UserId { get; set; }
     }

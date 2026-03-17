@@ -37,6 +37,12 @@
         <DataTemplate DataType="{x:Type vm:AdminViewModel}">
             <views:AdminDashboard/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AchievementsViewModel}">
+            <views:AchievementsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LeaderboardViewModel}">
+            <views:LeaderboardView/>
+        </DataTemplate>
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
@@ -95,6 +101,9 @@
                         Style="{StaticResource SidebarButton}"/>
                 <Button Content="&#x1F4CA; &#x05E1;&#x05D8;&#x05D8;&#x05D9;&#x05E1;&#x05D8;&#x05D9;&#x05E7;&#x05D5;&#x05EA;"
                         Command="{Binding NavigateToStatsCommand}"
+                        Style="{StaticResource SidebarButton}"/>
+                <Button Content="&#x1F3C6; &#x05DC;&#x05D5;&#x05D7; &#x05EA;&#x05D5;&#x05E6;&#x05D0;&#x05D5;&#x05EA;"
+                        Command="{Binding NavigateToLeaderboardCommand}"
                         Style="{StaticResource SidebarButton}"/>
                 <Button Content="&#x1F6E0;&#xFE0F; &#x05E0;&#x05D9;&#x05D4;&#x05D5;&#x05DC;"
                         Command="{Binding NavigateToAdminCommand}"

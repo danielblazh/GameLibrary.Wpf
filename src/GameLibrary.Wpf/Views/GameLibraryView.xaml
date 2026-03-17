@@ -8,6 +8,7 @@
         <converters:StatusToIconConverter x:Key="StatusToIcon"/>
         <converters:StatusToColorConverter x:Key="StatusToColor"/>
         <converters:HoursToTextConverter x:Key="HoursToText"/>
+        <converters:LevelToTextConverter x:Key="LevelToText"/>
     </UserControl.Resources>
 
     <Grid Background="{DynamicResource AppBackground}" Margin="16">
@@ -91,12 +92,20 @@
                 <DataGridTextColumn Header="&#x05E9;&#x05E2;&#x05D5;&#x05EA;"
                                     Binding="{Binding HoursPlayed, Converter={StaticResource HoursToText}}"
                                     Width="100"/>
-                <DataGridTemplateColumn Header="&#x05E4;&#x05E2;&#x05D5;&#x05DC;&#x05D5;&#x05EA;" Width="140">
+                <DataGridTextColumn Header="&#x05E8;&#x05DE;&#x05D4;"
+                                    Binding="{Binding Level, Converter={StaticResource LevelToText}}"
+                                    Width="80"/>
+                <DataGridTemplateColumn Header="&#x05E4;&#x05E2;&#x05D5;&#x05DC;&#x05D5;&#x05EA;" Width="180">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button Content="&#x270F;&#xFE0F;"
                                         Command="{Binding DataContext.EditGameCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Padding="8,4" Margin="0,0,4,0" FontSize="12"/>
+                                <Button Content="&#x1F3C6;"
+                                        Command="{Binding DataContext.AchievementsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         CommandParameter="{Binding}"
                                         Style="{StaticResource SecondaryButton}"
                                         Padding="8,4" Margin="0,0,4,0" FontSize="12"/>

@@ -30,6 +30,7 @@ namespace GameLibrary.Wpf.ViewModels
             GameLibraryCommand = new RelayCommand(() => _main.NavigateToGameLibrary());
             StatisticsCommand = new RelayCommand(() => _main.NavigateToStatistics());
             AdminCommand = new RelayCommand(() => _main.NavigateToAdmin());
+            LeaderboardCommand = new RelayCommand(() => _main.NavigateToLeaderboard());
         }
 
         private string _welcomeMessage = string.Empty;
@@ -52,5 +53,6 @@ namespace GameLibrary.Wpf.ViewModels
         public RelayCommand GameLibraryCommand { get; }
         public RelayCommand StatisticsCommand { get; }
         public RelayCommand AdminCommand { get; }
+        public RelayCommand LeaderboardCommand { get; }
     }
 }
